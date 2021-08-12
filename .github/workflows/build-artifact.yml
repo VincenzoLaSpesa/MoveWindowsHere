@@ -19,8 +19,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1
     - name: Build MoveWindowsHere
       run: |
-        msbuild.exe MoveWindowsHere.sln /p:platform="Any CPU" /p:configuration="Release"
-        Get-ChildItem -Recurse -Directory
+       msbuild.exe MoveWindowsHere.sln /p:platform="Any CPU" /p:configuration="Release"
     - name: Upload Windows x86_64 build
       uses: actions/upload-artifact@v2
       with:
