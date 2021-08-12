@@ -20,7 +20,7 @@ jobs:
     - name: Build MoveWindowsHere
       run: |
         msbuild.exe MoveWindowsHere.sln /p:platform="Any CPU" /p:configuration="Release"
-        find -type d || Get-ChildItem -Recurse -Directory
+        Get-ChildItem -Recurse -Directory
     - name: Upload Windows x86_64 build
       uses: actions/upload-artifact@v2
       with:
@@ -45,8 +45,6 @@ jobs:
         body: ${{ steps.read_release_notes.outputs.release_notes }}
         draft: false
         prerelease: false
-    - name: Build xTea for Windows x86_64
-      run: tree /f
     - name: Upload Windows x86_64 Build Asset
       uses: actions/upload-release-asset@v1
       env:
