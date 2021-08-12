@@ -40,11 +40,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        tag_name: ${{ github.ref }}
+        tag_name: tag_${{ github.ref }}
         release_name: MoveWindowsHere ${{ github.ref }}
         body: ${{ steps.read_release_notes.outputs.release_notes }}
         draft: false
         prerelease: false
+    - name: Build xTea for Windows x86_64
+      run: tree /f
     - name: Upload Windows x86_64 Build Asset
       uses: actions/upload-release-asset@v1
       env:
